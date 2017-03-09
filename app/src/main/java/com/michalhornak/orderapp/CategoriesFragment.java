@@ -6,6 +6,7 @@ import android.support.v4.content.Loader;
 import android.database.Cursor;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -47,7 +48,7 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
 //        dialog.setInverseBackgroundForced(false);
 //        dialog.show();
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         mRecyclerView.setLayoutManager(layoutManager);
 
         //todo parse cursor for data
@@ -55,6 +56,11 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
         temp.add(new Category("beer"));
         temp.add(new Category("vine"));
         temp.add(new Category("shots"));
+        temp.add(new Category("shots2"));
+        temp.add(new Category("shots3"));
+        temp.add(new Category("shots4"));
+        temp.add(new Category("shots5"));
+        temp.add(new Category("shots6"));
 
         mRecyclerView.setAdapter(new CategoryAdapter(temp, this));
 
@@ -75,9 +81,6 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
 
         //todo parse cursor for data
         ArrayList<Category> temp = new ArrayList<>();
-        temp.add(new Category("beer"));
-        temp.add(new Category("vine"));
-        temp.add(new Category("shots"));
 
         mRecyclerView.setAdapter(new CategoryAdapter(temp, this));
         dialog.dismiss();

@@ -9,6 +9,7 @@
         android:id="@+id/fragment"
         android:name="com.michalhornak.orderapp.CategoriesFragment"
         android:layout_weight="1"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_main" />
@@ -18,7 +19,9 @@
         android:id="@+id/fragment_details"
         android:name="com.michalhornak.orderapp.CategoryDetailFragment"
         android:layout_weight="1"
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout="@layout/fragment_main" />
+        android:background="@color/colorBackgroundSoft" />
+
 </LinearLayout>
