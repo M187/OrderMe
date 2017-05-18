@@ -9,7 +9,7 @@ import android.provider.BaseColumns;
 
 public class ItemsContract {
 
-    public static final String CONTENT_AUTHORITY = "com.michalhornak.persistance";
+    public static final String CONTENT_AUTHORITY = "com.michalhornak.persistence";
 
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY);
 

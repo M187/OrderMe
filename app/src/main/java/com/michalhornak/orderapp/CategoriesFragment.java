@@ -1,22 +1,23 @@
 package com.michalhornak.orderapp;
 
-import android.support.v4.app.LoaderManager;
 import android.app.ProgressDialog;
-import android.support.v4.content.Loader;
+
 import android.database.Cursor;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.CursorLoader;
+import android.support.v4.content.Loader;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.michalhornak.orderapp.data.Category;
+import com.michalhornak.persistence.ItemsContract;
 
 import java.util.ArrayList;
 
@@ -31,6 +32,11 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
     private RecyclerView mRecyclerView;
     private final int CATEGORY_LOADER_ID = 1;
 
+    private static final String[] categoriesProjection = {
+            ItemsContract.CategoryEntry.COLUMN_ID,
+            ItemsContract.CategoryEntry.COLUMN_CATEGORY_NAME,
+    };
+
     public CategoriesFragment() {
     }
 
@@ -41,36 +47,42 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
         setHasOptionsMenu(false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.product_category_list);
 
-        //getLoaderManager().initLoader(CATEGORY_LOADER_ID, null, this);
-//        this.dialog = new ProgressDialog(this.getContext());
-//        dialog.setMessage("Waiting to fetch data");
-//        dialog.setCancelable(false);
-//        dialog.setInverseBackgroundForced(false);
-//        dialog.show();
+        getLoaderManager().initLoader(CATEGORY_LOADER_ID, null, this);
+        this.dialog = new ProgressDialog(this.getContext());
+        dialog.setMessage("Waiting to fetch data");
+        dialog.setCancelable(false);
+        dialog.setInverseBackgroundForced(false);
+        dialog.show();
 
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         mRecyclerView.setLayoutManager(layoutManager);
 
-        //todo parse cursor for data
-        ArrayList<Category> temp = new ArrayList<>();
-        temp.add(new Category("beer"));
-        temp.add(new Category("vine"));
-        temp.add(new Category("shots"));
-        temp.add(new Category("shots2"));
-        temp.add(new Category("shots3"));
-        temp.add(new Category("shots4"));
-        temp.add(new Category("shots5"));
-        temp.add(new Category("shots6"));
-
-        mRecyclerView.setAdapter(new CategoryAdapter(temp, this));
-
+//        //todo parse cursor for data
+//        ArrayList<Category> temp = new ArrayList<>();
+//        temp.add(new Category("beer"));
+//        temp.add(new Category("vine"));
+//        temp.add(new Category("shots"));
+//        temp.add(new Category("shots2"));
+//        temp.add(new Category("shots3"));
+//        temp.add(new Category("shots4"));
+//        temp.add(new Category("shots5"));
+//        temp.add(new Category("shots6"));
+//
+//        mRecyclerView.setAdapter(new CategoryAdapter(temp, this));
         return view;
     }
 
 
     @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-        return null;
+        CursorLoader loader = new CursorLoader(
+                this.getActivity(),
+                ItemsContract.CategoryEntry.CONTENT_URI.buildUpon().appendPath("category").build(),
+                categoriesProjection,
+                null,
+                null,
+                null);
+        return loader;
     }
 
     @Override
@@ -81,6 +93,10 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
 
         //todo parse cursor for data
         ArrayList<Category> temp = new ArrayList<>();
+
+        while (data.moveToNext()) {
+            temp.add(new Category(data.getString(1)));
+        }
 
         mRecyclerView.setAdapter(new CategoryAdapter(temp, this));
         dialog.dismiss();

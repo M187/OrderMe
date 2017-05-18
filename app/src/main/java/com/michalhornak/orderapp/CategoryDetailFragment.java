@@ -16,6 +16,10 @@ import com.michalhornak.orderapp.data.Category;
 
 public class CategoryDetailFragment extends Fragment {
 
+    public Category getSelectedCategory() {
+        return selectedCategory;
+    }
+
     private static final String SELECETD_CATEGORY = "selectedCategory";
     private Category selectedCategory;
     private mViewHolder mViewHolder = new mViewHolder();
@@ -44,7 +48,7 @@ public class CategoryDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         LinearLayout view;
         if (mViewHolder.mainLayout == null) {
-            view = (LinearLayout) inflater.inflate(R.layout.category_detail_fragment, container, false);
+            view = (LinearLayout) inflater.inflate(R.layout.category_detail_layout, container, false);
             mViewHolder.mainLayout = view;
         } else {
             view = mViewHolder.mainLayout;

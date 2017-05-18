@@ -5,7 +5,7 @@
         android:supportsRtl="true">
 
         <provider
-            android:name="com.michalhornak.persistence"
+            android:name="com.michalhornak.persistence.ProductItemsProvider"
             android:authorities="com.michalhornak.persistence" />
 
     </application>
