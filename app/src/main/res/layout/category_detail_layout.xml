@@ -6,11 +6,13 @@
     android:background="@drawable/beer"
     android:gravity="center">
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/product_list"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
-        android:textColor="@color/blackColor"
-        android:id="@+id/category_detail_text"/>
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="false"
+        android:scrollbarSize="5dp"
+        />
 
 </LinearLayout>

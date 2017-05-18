@@ -9,6 +9,7 @@ import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,8 +31,8 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
 
     private ProgressDialog dialog;
     private RecyclerView mRecyclerView;
-    private final int CATEGORY_LOADER_ID = 1;
 
+    private final int CATEGORY_LOADER_ID = 1;
     private static final String[] categoriesProjection = {
             ItemsContract.CategoryEntry.COLUMN_ID,
             ItemsContract.CategoryEntry.COLUMN_CATEGORY_NAME,
@@ -46,6 +47,8 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
         LinearLayout view = (LinearLayout) inflater.inflate(R.layout.fragment_main, container, false);
         setHasOptionsMenu(false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.product_category_list);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        mRecyclerView.setHasFixedSize(true);
 
         getLoaderManager().initLoader(CATEGORY_LOADER_ID, null, this);
         this.dialog = new ProgressDialog(this.getContext());
@@ -54,21 +57,8 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
         dialog.setInverseBackgroundForced(false);
         dialog.show();
 
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
-        mRecyclerView.setLayoutManager(layoutManager);
-
-//        //todo parse cursor for data
-//        ArrayList<Category> temp = new ArrayList<>();
-//        temp.add(new Category("beer"));
-//        temp.add(new Category("vine"));
-//        temp.add(new Category("shots"));
-//        temp.add(new Category("shots2"));
-//        temp.add(new Category("shots3"));
-//        temp.add(new Category("shots4"));
-//        temp.add(new Category("shots5"));
-//        temp.add(new Category("shots6"));
-//
-//        mRecyclerView.setAdapter(new CategoryAdapter(temp, this));
+//        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
+//        mRecyclerView.setLayoutManager(layoutManager);
         return view;
     }
 
@@ -88,14 +78,14 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
 
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
-        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        mRecyclerView.setHasFixedSize(true);
 
         //todo parse cursor for data
         ArrayList<Category> temp = new ArrayList<>();
 
         while (data.moveToNext()) {
-            temp.add(new Category(data.getString(1)));
+            temp.add(new Category(data.getString(1), data.getString(0)));
         }
 
         mRecyclerView.setAdapter(new CategoryAdapter(temp, this));

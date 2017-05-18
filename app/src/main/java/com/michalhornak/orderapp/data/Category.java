@@ -7,10 +7,11 @@ import android.os.Parcelable;
  * Created by michal.hornak on 3/9/2017.
  */
 
-public class Category implements Parcelable{
+public class Category implements Parcelable {
 
-    public Category(String name) {
+    public Category(String name, String ID) {
         this.name = name;
+        this.ID = ID;
     }
 
     public String getName() {
@@ -19,6 +20,19 @@ public class Category implements Parcelable{
 
     private String name;
 
+    public String getID() {
+        return ID;
+    }
+
+    private String ID;
+
+
+
+
+    protected Category(Parcel in) {
+        name = in.readString();
+        ID = in.readString();
+    }
 
     @Override
     public int describeContents() {
@@ -27,20 +41,15 @@ public class Category implements Parcelable{
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.name);
+        dest.writeString(name);
+        dest.writeString(ID);
     }
 
-    private Category(Parcel in){
-        name = in.readString();
-    }
-
-    // After implementing the `Parcelable` interface, we need to create the
-    // `Parcelable.Creator<Movie> CREATOR` constant for our class;
-    // Notice how it has our class specified as its type.
-    public static final Parcelable.Creator<Category> CREATOR = new Parcelable.Creator<Category>(){
+    @SuppressWarnings("unused")
+    public static final Parcelable.Creator<Category> CREATOR = new Parcelable.Creator<Category>() {
         @Override
-        public Category createFromParcel(Parcel source) {
-            return new Category(source);
+        public Category createFromParcel(Parcel in) {
+            return new Category(in);
         }
 
         @Override

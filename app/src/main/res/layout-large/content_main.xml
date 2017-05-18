@@ -8,11 +8,17 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/fragment"
         android:name="com.michalhornak.orderapp.CategoriesFragment"
-        android:layout_weight="1"
+        android:layout_weight="3"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/fragment_main" />
+
+    <View
+        android:layout_width="3dp"
+
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimaryDark"/>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -22,6 +28,6 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorBackgroundSoft" />
+        android:background="@color/primary_light" />
 
 </LinearLayout>
