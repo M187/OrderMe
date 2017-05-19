@@ -6,4 +6,6 @@
 
     <dimen name="fab_elevation">6dp</dimen>
     <dimen name="button_elevation">3dp</dimen>
+
+    <dimen name="left_menu_height">180dp</dimen>
 </resources>

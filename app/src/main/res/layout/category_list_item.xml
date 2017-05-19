@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
-    android:layout_width="200dp"
-    android:layout_height="100dp"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/left_menu_height"
     android:gravity="center"
     android:layout_margin="10dp"
     android:elevation="@dimen/button_elevation"
     android:background="@color/icons">
 
-    <TextView
+    <com.michalhornak.orderapp.views.CustomTextView
         android:id="@+id/item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/primary_text"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:textSize="60dp"
         android:text="default category"/>
 
 </LinearLayout>
