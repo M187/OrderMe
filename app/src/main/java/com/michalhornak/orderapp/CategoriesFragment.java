@@ -57,8 +57,6 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
         dialog.setInverseBackgroundForced(false);
         dialog.show();
 
-//        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
-//        mRecyclerView.setLayoutManager(layoutManager);
         return view;
     }
 
@@ -102,11 +100,13 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
         if (IS_TWO_PANE) {
             getFragmentManager()
                     .beginTransaction()
+                    .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                     .replace(R.id.fragment_details, CategoryDetailFragment.newInstance(category), "categoryDetailFragment")
                     .commit();
         } else {
             getFragmentManager()
                     .beginTransaction()
+                    .setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right)
                     .replace(R.id.fragment, CategoryDetailFragment.newInstance(category), "categoryDetailFragment")
                     .addToBackStack(null)
                     .commit();
