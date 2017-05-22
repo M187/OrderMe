@@ -8,27 +8,27 @@ import android.widget.TextView;
 /**
  * Created by michal.hornak on 5/19/2017.
  */
-public class CustomTextView extends TextView {
+public class CustomTextViewBold extends TextView {
 
     private int typefaceType;
 
-    public CustomTextView(Context context, AttributeSet attrs) {
+    public CustomTextViewBold(Context context, AttributeSet attrs) {
         super(context, attrs);
         applyCustomFont(context, attrs);
     }
 
-    public CustomTextView(Context context, AttributeSet attrs, int defStyle) {
+    public CustomTextViewBold(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         applyCustomFont(context, attrs);
     }
 
-    public CustomTextView(Context context) {
+    public CustomTextViewBold(Context context) {
         super(context);
     }
 
     private void applyCustomFont(Context context, AttributeSet attrs) {
         if (!isInEditMode()) {
-            setTypeface(getTypeFace());
+            setTypeface(getTypeFace(), Typeface.BOLD);
         }
     }
 

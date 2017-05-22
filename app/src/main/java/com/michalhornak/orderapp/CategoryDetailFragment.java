@@ -1,6 +1,7 @@
 package com.michalhornak.orderapp;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
@@ -92,7 +93,8 @@ public class CategoryDetailFragment extends Fragment implements LoaderManager.Lo
 
     @Override
     public void onProductItemClick(Product category) {
-
+        Intent temp = new Intent(getActivity(), ProductActivity.class);
+        startActivity(temp);
     }
 
     private class mViewHolder {

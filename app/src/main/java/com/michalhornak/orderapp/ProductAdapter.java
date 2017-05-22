@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.michalhornak.orderapp.data.Category;
 import com.michalhornak.orderapp.data.Product;
 
 import java.util.ArrayList;

@@ -8,7 +8,7 @@
     android:elevation="@dimen/button_elevation"
     android:background="@color/icons">
 
-    <com.michalhornak.orderapp.views.CustomTextView
+    <com.michalhornak.orderapp.views.CustomTextViewBold
         android:id="@+id/item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
