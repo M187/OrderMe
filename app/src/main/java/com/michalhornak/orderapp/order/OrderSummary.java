@@ -21,5 +21,4 @@ public class OrderSummary extends AppCompatActivity {
 
         getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
-
 }

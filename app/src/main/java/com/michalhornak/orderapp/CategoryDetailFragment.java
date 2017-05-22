@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.michalhornak.orderapp.data.Category;
 import com.michalhornak.orderapp.data.Product;
@@ -93,7 +92,7 @@ public class CategoryDetailFragment extends Fragment implements LoaderManager.Lo
 
     @Override
     public void onProductItemClick(Product category) {
-        Intent temp = new Intent(getActivity(), ProductActivity.class);
+        Intent temp = new Intent(getActivity(), ProductDetailActivity.class);
         startActivity(temp);
     }
 
