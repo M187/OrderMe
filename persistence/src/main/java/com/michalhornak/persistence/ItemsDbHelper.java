@@ -42,7 +42,7 @@ public class ItemsDbHelper extends SQLiteOpenHelper {
 
         String testDataInsertionCategories = "INSERT INTO " + ItemsContract.CategoryEntry.TABLE_NAME + " (" +
                 ItemsContract.CategoryEntry.COLUMN_CATEGORY_NAME + ") VALUES " +
-                "('Beer')," +
+                "('Food')," +
                 "('Shots')," +
                 "('Vine')," +
                 "('Tea')," +
