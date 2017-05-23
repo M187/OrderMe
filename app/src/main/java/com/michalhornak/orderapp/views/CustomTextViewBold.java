@@ -33,6 +33,6 @@ public class CustomTextViewBold extends TextView {
     }
 
     public Typeface getTypeFace() {
-        return Typeface.createFromAsset(getContext().getAssets(),"fonts/crochet.ttf");
+        return Typeface.createFromAsset(getContext().getAssets(),"fonts/roboto_regular.ttf");
     }
 }
