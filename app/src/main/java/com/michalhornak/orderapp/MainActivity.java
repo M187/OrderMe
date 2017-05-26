@@ -1,5 +1,6 @@
 package com.michalhornak.orderapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -55,5 +56,10 @@ public class MainActivity extends AppCompatActivity{
         MenuInflater inflater = popup.getMenuInflater();
         inflater.inflate(R.menu.language_menu, popup.getMenu());
         popup.show();
+    }
+
+    public void showOrderedItems(View v){
+        Intent temp = new Intent(this, OrderedItemsOverviewActivity.class);
+        startActivity(temp);
     }
 }

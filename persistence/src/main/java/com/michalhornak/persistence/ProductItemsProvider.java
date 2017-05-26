@@ -17,6 +17,8 @@ public class ProductItemsProvider extends ContentProvider {
 
 
     private static final int GET_CATEGORIES = 10;
+    private static final int GET_CATEGORIES_FOOD = 11;
+    private static final int GET_CATEGORIES_DRINKS = 12;
     private static final int GET_PRODUCTS = 20;
 
     private static final UriMatcher URI_MATCHER;
@@ -28,6 +30,12 @@ public class ProductItemsProvider extends ContentProvider {
         URI_MATCHER.addURI(ItemsContract.CONTENT_AUTHORITY,
                 ItemsContract.PATH_PRODUCTS_DB + "/category",
                 GET_CATEGORIES);
+        URI_MATCHER.addURI(ItemsContract.CONTENT_AUTHORITY,
+                ItemsContract.PATH_PRODUCTS_DB + "/category/food",
+                GET_CATEGORIES_FOOD);
+        URI_MATCHER.addURI(ItemsContract.CONTENT_AUTHORITY,
+                ItemsContract.PATH_PRODUCTS_DB + "/category/drinks",
+                GET_CATEGORIES_DRINKS);
         URI_MATCHER.addURI(ItemsContract.CONTENT_AUTHORITY,
                 ItemsContract.PATH_PRODUCTS_DB + "/products",
                 GET_PRODUCTS);
@@ -51,6 +59,14 @@ public class ProductItemsProvider extends ContentProvider {
         switch (URI_MATCHER.match(uri)) {
             case GET_PRODUCTS:
                 builder.setTables(ItemsContract.ProductEntry.TABLE_NAME);
+                break;
+            case GET_CATEGORIES_FOOD:
+                builder.setTables(ItemsContract.ProductEntry.TABLE_NAME);
+                selection = "group_id = 'food'";
+                break;
+            case GET_CATEGORIES_DRINKS:
+                builder.setTables(ItemsContract.ProductEntry.TABLE_NAME);
+                selection = "group_id = 'drink'";
                 break;
             case GET_CATEGORIES:
                 builder.setTables(ItemsContract.CategoryEntry.TABLE_NAME);

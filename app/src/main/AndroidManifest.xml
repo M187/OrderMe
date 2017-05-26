@@ -22,9 +22,11 @@
 
         <activity android:name=".ProductDetailActivity"
             android:theme="@android:style/Theme.Dialog"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"/>
 
-        </activity>
+        <activity android:name=".OrderedItemsOverviewActivity"
+            android:theme="@android:style/Theme.Dialog"
+            android:screenOrientation="landscape"/>
 
     </application>
 

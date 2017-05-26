@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/ordered_items_list"
@@ -14,26 +12,6 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:scrollbars="vertical"
         android:fadeScrollbars="false"
-        android:scrollbarSize="5dp"
-        />
+        android:scrollbarSize="5dp"/>
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/toolbar_container"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/toolbar_height">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:navigationIcon="@drawable/logo"
-            app:contentInsetStart="72dp"
-            app:layout_collapseMode="pin"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_gravity="bottom"/>
-
-    </android.support.design.widget.AppBarLayout>
-
-</android.support.design.widget.CoordinatorLayout>
+</LinearLayout>

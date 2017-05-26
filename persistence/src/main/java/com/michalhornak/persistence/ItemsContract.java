@@ -22,6 +22,7 @@ public class ItemsContract {
 
         public static final String COLUMN_ID = "id";
         public static final String COLUMN_CATEGORY_NAME = "category_name";
+        public static final String COLUMN_GROUP_ID = "group_id";
     }
 
 
