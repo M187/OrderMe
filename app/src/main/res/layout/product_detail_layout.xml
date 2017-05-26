@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/background_gradient"
         android:padding="15dp"
+        android:elevation="6dp"
         android:paddingBottom="45dp">
 
         <com.michalhornak.orderapp.views.CustomTextView
@@ -31,5 +32,11 @@
 
     </LinearLayout>
 
+    <Button
+        android:padding="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:background="@mipmap/ic_euro_symbol_black_36dp"/>
 
 </LinearLayout>

@@ -37,6 +37,8 @@ public class CategoryDetailFragment extends Fragment implements LoaderManager.Lo
     private mViewHolder mViewHolder = new mViewHolder();
     private RecyclerView mRecyclerView;
 
+    private ArrayList<Product> choosenCategoryProducts;
+
     private final int PRODUCTS_LOADER_ID = 2;
     private static final String[] categoriesProjection = {
             ItemsContract.ProductEntry.COLUMN_ID,
@@ -71,17 +73,17 @@ public class CategoryDetailFragment extends Fragment implements LoaderManager.Lo
         mRecyclerView.setLayoutManager(layoutManager);
 
         //todo parse cursor for data
-        ArrayList<Product> temp = new ArrayList<>();
+        this.choosenCategoryProducts = new ArrayList<>();
 
         while (data.moveToNext()) {
-            temp.add(new Product(
+            this.choosenCategoryProducts.add(new Product(
                     data.getString(0),
                     data.getString(1),
                     data.getString(2),
                     data.getString(3)));
         }
 
-        mRecyclerView.setAdapter(new ProductAdapter(temp, this));
+        mRecyclerView.setAdapter(new ProductAdapter(this.choosenCategoryProducts, this));
         dialog.dismiss();
     }
 
@@ -91,8 +93,10 @@ public class CategoryDetailFragment extends Fragment implements LoaderManager.Lo
     }
 
     @Override
-    public void onProductItemClick(Product category) {
+    public void onProductItemClick(Product product) {
         Intent temp = new Intent(getActivity(), ProductDetailActivity.class);
+        temp.putExtra("productClicked", product);
+        temp.putParcelableArrayListExtra("products", this.choosenCategoryProducts);
         startActivity(temp);
     }
 

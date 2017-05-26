@@ -69,4 +69,20 @@ public class Product implements Parcelable {
             return new Product[size];
         }
     };
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Product product = (Product) o;
+
+        return ID.equals(product.ID);
+
+    }
+
+    @Override
+    public int hashCode() {
+        return ID.hashCode();
+    }
 }
