@@ -65,7 +65,7 @@ public class CategoriesFragment extends Fragment implements LoaderManager.Loader
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         CursorLoader loader = new CursorLoader(
                 this.getActivity(),
-                ItemsContract.CategoryEntry.CONTENT_URI.buildUpon().appendPath("category").build(),
+                ItemsContract.CategoryEntry.CONTENT_URI.buildUpon().appendPath("category").appendPath("food").build(),
                 categoriesProjection,
                 null,
                 null,

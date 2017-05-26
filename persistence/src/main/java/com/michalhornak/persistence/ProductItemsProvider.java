@@ -61,11 +61,11 @@ public class ProductItemsProvider extends ContentProvider {
                 builder.setTables(ItemsContract.ProductEntry.TABLE_NAME);
                 break;
             case GET_CATEGORIES_FOOD:
-                builder.setTables(ItemsContract.ProductEntry.TABLE_NAME);
+                builder.setTables(ItemsContract.CategoryEntry.TABLE_NAME);
                 selection = "group_id = 'food'";
                 break;
             case GET_CATEGORIES_DRINKS:
-                builder.setTables(ItemsContract.ProductEntry.TABLE_NAME);
+                builder.setTables(ItemsContract.CategoryEntry.TABLE_NAME);
                 selection = "group_id = 'drink'";
                 break;
             case GET_CATEGORIES:
