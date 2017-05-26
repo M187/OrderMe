@@ -24,7 +24,7 @@ public class ItemsDbHelper extends SQLiteOpenHelper {
         final String SQL_CREATE_CATEGORY_ITEMS_TABLE =
                 "CREATE TABLE " + ItemsContract.CategoryEntry.TABLE_NAME + " (" +
                         ItemsContract.CategoryEntry.COLUMN_ID + " INTEGER NOT NULL PRIMARY KEY, " +
-                        ItemsContract.CategoryEntry.COLUMN_CATEGORY_NAME + " STRING DEFAULT '' )" +
+                        ItemsContract.CategoryEntry.COLUMN_CATEGORY_NAME + " STRING DEFAULT ''," +
                         ItemsContract.CategoryEntry.COLUMN_GROUP_ID + " STRING DEFAULT 'drink' )";
 
         final String SQL_CREATE_PRODUCT_ITEMS_TABLE =
@@ -52,7 +52,8 @@ public class ItemsDbHelper extends SQLiteOpenHelper {
                 "('Non-Alco');";
 
         String testDataInsertionFoodCategories = "INSERT INTO " + ItemsContract.CategoryEntry.TABLE_NAME + " (" +
-                ItemsContract.CategoryEntry.COLUMN_CATEGORY_NAME + ") VALUES " +
+                ItemsContract.CategoryEntry.COLUMN_CATEGORY_NAME + "," +
+                ItemsContract.CategoryEntry.COLUMN_GROUP_ID + ") VALUES " +
                 "('Appetizers','food')," +
                 "('Soups','food')," +
                 "('Pork','food')," +
@@ -100,7 +101,7 @@ public class ItemsDbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    private String buildSelectCategoryString(String categoryType){
+    private String buildSelectCategoryString(String categoryType) {
         return "(SELECT " + ItemsContract.CategoryEntry.COLUMN_ID + " FROM " + ItemsContract.CategoryEntry.TABLE_NAME + " WHERE " + ItemsContract.CategoryEntry.COLUMN_CATEGORY_NAME + " = '" + categoryType + "')";
     }
 }
