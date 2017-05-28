@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.michalhornak.orderapp.data.Product;
 
@@ -54,6 +55,7 @@ public class ProductDetailActivity extends FragmentActivity {
 
     public void addToBasket(View view){
         ORDERED_PRODUCT_LIST.add(currentProduct);
+        Toast.makeText(this, "Product added to basket.", Toast.LENGTH_SHORT);
     }
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter implements ViewPager.PageTransformer{
