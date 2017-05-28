@@ -15,6 +15,9 @@ import com.michalhornak.orderapp.data.Product;
 
 import java.util.ArrayList;
 
+import static com.michalhornak.orderapp.MainActivity.ORDERED_PRODUCT_LIST;
+import static com.michalhornak.orderapp.ProductDetailFragment.currentProduct;
+
 /**
  * Created by michal.hornak on 5/22/2017.
  */
@@ -49,6 +52,9 @@ public class ProductDetailActivity extends FragmentActivity {
         );
     }
 
+    public void addToBasket(View view){
+        ORDERED_PRODUCT_LIST.add(currentProduct);
+    }
 
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter implements ViewPager.PageTransformer{
 

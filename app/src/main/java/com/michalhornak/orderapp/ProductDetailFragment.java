@@ -17,6 +17,8 @@ import com.michalhornak.orderapp.data.Product;
 
 public class ProductDetailFragment extends Fragment {
 
+    public static Product currentProduct;
+
     public static ProductDetailFragment newInstance(Product product){
         ProductDetailFragment f = new ProductDetailFragment();
         Bundle args = new Bundle();
@@ -29,10 +31,10 @@ public class ProductDetailFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         LinearLayout rootView = (LinearLayout) inflater.inflate(R.layout.product_detail_layout, container, false);
 
-        Product product = getArguments().getParcelable("product");
+        currentProduct = getArguments().getParcelable("product");
 
-        ((TextView)rootView.findViewById(R.id.product_name)).setText(product.getNAME());
-        ((TextView)rootView.findViewById(R.id.product_price)).setText(product.getPRICE());
+        ((TextView)rootView.findViewById(R.id.product_name)).setText(currentProduct.getNAME());
+        ((TextView)rootView.findViewById(R.id.product_price)).setText(currentProduct.getPRICE());
 
         return rootView;
     }
