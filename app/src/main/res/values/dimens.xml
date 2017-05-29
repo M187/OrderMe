@@ -10,4 +10,6 @@
     <dimen name="left_menu_height">180dp</dimen>
 
     <dimen name="toolbar_height">56dp</dimen>
+
+    <dimen name="order_list_font_size">30dp</dimen>
 </resources>

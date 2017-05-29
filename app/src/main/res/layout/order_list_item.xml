@@ -1,17 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@color/primary_light"
+    android:padding="5dp"
+    android:shrinkColumns="0">
 
-    <com.michalhornak.orderapp.views.CustomTextView
-        android:id="@+id/product_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <com.michalhornak.orderapp.views.CustomTextView
-        android:id="@+id/product_price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <com.michalhornak.orderapp.views.CustomTextView
+            android:id="@+id/product_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingEnd="30dp"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/order_list_font_size"
+            android:layout_weight="1"/>
 
-</LinearLayout>
+        <com.michalhornak.orderapp.views.CustomTextView
+            android:id="@+id/product_price"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/primary_text"
+            android:gravity="end"
+            android:layout_weight="1"
+            android:textSize="@dimen/order_list_font_size" />
+    </TableRow>
+
+</TableLayout>

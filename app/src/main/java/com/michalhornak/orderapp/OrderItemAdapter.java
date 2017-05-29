@@ -35,6 +35,7 @@ public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.Orde
     @Override
     public void onBindViewHolder(OrderItemViewHolder holder, int position) {
         holder.productName.setText(ORDERED_PRODUCT_LIST.get(position).getNAME());
+        holder.productPrice.setText(ORDERED_PRODUCT_LIST.get(position).getPRICE());
     }
 
     @Override
