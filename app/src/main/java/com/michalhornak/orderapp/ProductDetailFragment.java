@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.michalhornak.orderapp.data.Product;
@@ -29,7 +28,7 @@ public class ProductDetailFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        LinearLayout rootView = (LinearLayout) inflater.inflate(R.layout.product_detail_layout, container, false);
+        View rootView = inflater.inflate(R.layout.product_detail_layout, container, false);
 
         currentProduct = getArguments().getParcelable("product");
 
