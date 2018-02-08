@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "312348556930",
+    "firebase_url": "https://orderme-6a0fa.firebaseio.com",
+    "project_id": "orderme-6a0fa",
+    "storage_bucket": "orderme-6a0fa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312348556930:android:741a867deac774e3",
+        "android_client_info": {
+          "package_name": "com.michalhornak.orderapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312348556930-83vat7eh0ai9muefq460jm4o3tr2ag9o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlmnhIXFn9gFmf3tSgjh9Hqk51fhjliOw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
